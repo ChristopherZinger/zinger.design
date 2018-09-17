@@ -1,0 +1,62 @@
+
+
+
+
+
+/*==========================  BIG SCREEN =================================*/
+@media only screen and (min-width: 993px) { 
+    .my-nav{
+        background-color: rgba(255, 255, 255, 1);
+        border-bottom: 1px solid rgb(245,245,245);
+    }
+    .my-nav:hover{
+        background-color:rgba(255, 255, 255, 1);
+    }
+    .nav-menu-link{color: black;}
+    a:hover{color: black;  }
+    .nav-menu-brand{
+        color: black;
+    }
+    
+
+    .nav-menu-ul>li{ border-bottom: solid 2px rgba(255, 255, 255, 0); }
+    .nav-menu-ul>li:hover{border-bottom: solid 2px rgba(20, 20, 20, 1);  }
+}
+
+/*==========================  MEDIUM SCREEN =================================*/
+@media only screen and (min-width: 768px) and (max-width: 992px) { 
+    .my-nav{        background-color: rgba(255, 255, 255, 1);    }
+
+    
+    .nav-menu-link{color: black;}
+    .menu-button{ display:none;}
+    a:hover{color: black;  }
+    .nav-menu-brand{
+        color: black;        
+        top: .3em;
+    }
+
+    .nav-menu-link{
+        position: relative;
+        top: 1.2em;
+    }
+    .nav-menu-ul>li{ border-bottom: solid 2px rgba(255, 255, 255, 0); }
+    .nav-menu-ul>li:hover{border-bottom: solid 2px rgba(0, 0, 0, 1);  }
+}
+
+/*==========================  SMALL SCREEN =================================*/
+@media only screen and (max-width: 767px) { 
+    .my-nav{
+        height: 3em;
+        background-color: rgba(255, 255, 255, 1);
+    }
+    .nav-menu-brand{
+        color: black;
+    }
+    .nav-menu-ul{
+        display: none;
+    }
+    .nav-menu-link{ color: black; }
+    
+}
+

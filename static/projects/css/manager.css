@@ -1,0 +1,68 @@
+
+a, .list-group-item, .edit-description, .manage-nav-link{
+    color: black;
+    transition-duration: .5s;
+}
+.list-group-item:hover, #edit-description:hover , .manage-nav-link:hover{
+    background-color: rgb(240,240,240)
+}
+
+.project-card{
+    box-shadow: 0px 0px 2px 2px rgb(240,240,240); 
+    margin:15px 0px 15px 0px; 
+    border-radius: 7px; 
+    padding: 8px;
+}
+
+.edit-icons{
+    float: right;   
+}
+
+.col-md-3{
+    padding: 0px;
+}
+
+.my-card{
+    background-color: white;
+    padding: 5px;
+    margin: .3em;
+    box-shadow: 0px 0px 2px 2px rgb(240,240,240); 
+    border-radius: 7px; 
+}
+
+.my-card-img{
+    height: 10em;
+    overflow: hidden;
+}
+
+
+.my-card-img {
+    border-radius: 5px;
+    min-width: 100%;
+    min-height: 100%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    overflow: hidden;
+}
+
+.card-title{
+    text-align: center;
+}
+
+.my-list{
+    margin: 0px;
+}
+
+.list-group-item{
+    border:none;
+    border-top: 1px solid rgb(230,230,230);
+    border-bottom: 1px solid rgb(230,230,230);
+}
+
+.my-li{
+    width: 30%;
+    display: inline-block;
+}

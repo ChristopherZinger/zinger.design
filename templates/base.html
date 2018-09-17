@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:400" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'main/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/my-navbar.css' %}">
+
+
+
+    {% block head %}{% endblock %}
+
+</head>
+<body>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+  
+<div class="my-nav">
+    <div class="container full-container" >
+        <div class="nav-menu">
+            <ul class="nav-menu-ul">
+                <li><a class="nav-menu-link" href="{% url 'index' %}">All Projects</a></li>
+                <li><a class="nav-menu-link" href="{% url 'about:about' %}">About</a></li>
+                <li><a class="nav-menu-link" href="{% url 'project_contact' %}">Contact</a></li>
+            </ul>
+            <div class="menu-button">
+                    <div id="nav-icon3">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                    </div>
+            </div>
+        </div>
+        <a class="nav-menu-brand" href="{% url 'index' %}">dezinger</a>
+    </div>
+</div>
+
+
+
+    {% block content %}
+
+
+    {% endblock %}
+
+<script src="{% static 'main/js/bootstrap.min.js' %}"></script>            
+<script src="{% static 'main/js/menu_button.js' %}"></script>
+
+
+</body>
+
+</html>

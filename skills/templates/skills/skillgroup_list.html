@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'about/css/about.css' %}">
+<link rel="stylesheet" href="{% static 'main/css/my-navbar-dark.css' %}">
+<link rel="stylesheet" href="{% static 'main/css/footer.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <!-- img -->
+        <div class="row" style="margin: 0px;min-height: 50vh">
+            <div class="img-container" style="background-image: url('{{ about.0.img.url }}')  ;">
+ 
+            </div>
+        </div>
+
+    <!-- description -->
+    <div class="row" style="min-height: 50vh">
+        <div class="col-sm-12" >
+            <h3 style='text-align: center;'>About</h3>
+            <p id='about-text' >{{ about.0.description }}</p>
+        </div>    
+    </div>
+    <!-- Loop All skilks -->
+        {% for skillgroup in object_list %}
+        <!-- Decide if new row -->
+        {% if skillgroup.display_width == 'full' %} 
+        <div class="row">
+        <div class=" col-sm-12 col-12-padding">
+        {% else %}  
+            {% if forloop.counter|divisibleby:"2" %}
+                <div class="row">
+                <div class=" col-sm-6 col-6-padding" >  
+            {% else %}
+                <div class=" col-sm-6 col-6-padding" >
+            {% endif %}
+        {% endif %}
+            <!-- Skills Title -->     
+            <h3 style='text-align: center;'>{{ skillgroup.title }}</h3>
+            <!-- Skills details -->
+            <ul style="display:inline-block;" id="{% if skillgroup.title == 'Work Experience' %}time-graph-items{% else %}{{skillgroup.title}}{% endif %}">
+                {% for skill in skillgroup.skill.all  %}
+                <li style="{% if  skillgroup.title == 'Software' or skillgroup.title == 'Programming' or skillgroup.title == 'Language' %}display: inline-block;{% else %}display: block;{% endif %} ">
+                    {{skill.title}}
+                    <!-- Additional info for Education -->
+                    {% if skillgroup.title == 'Education' %}
+                        <ul>
+                            <li> {{ skill.add_info_1 }}  </li>
+                            <li>  {{ skill.add_info_2 }} </li>
+                        </ul>
+
+                    {% endif %}
+                </li>
+                <!-- Skill Points -->
+                {% if skillgroup.no_graph == False %}
+                <div class="right">
+                    {% for i in "x"|rjust:"10" %}
+                        {% if skill.level_dec > 0 %}
+                            {% if forloop.counter > skill.level_dec %}
+                            <div class='skill-point s-p-g'></div>
+                            {% else %}
+                            <div class='skill-point s-p-b'></div>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                    
+                </div>
+                {% if skillgroup.title != 'Work Experience' %}<br>{% endif %}
+                {% endif %}
+                <!-- Language info -->
+                {% if skillgroup.title == 'Language' %}
+                <div class="right" style="display: inline-block;">      
+                            {{ skill.add_info_1 }}  
+                </div>
+                <br>
+                {% endif %}
+                {% endfor %}
+            </ul>
+            <!-- dates and graph for  Work Experience -->
+            {% if skillgroup.title == 'Work Experience'  %}
+                <!-- dates  -->
+                <ul style="display:inline-block;" id="time-graph-dates">
+                    {% for skill in skillgroup.skill.all %}
+                    <li style="text-align: center;">{{skill.startDate|date:'M y'}}' - {{skill.endDate|date:'M y'}}'</li>
+                    {% endfor %}
+                </ul>
+                <!-- graph  -->
+                <ul class="time-graph"  id="time-graph-bars">
+                    {% for skill in items %}
+                    <li>
+                        <div class="time-bar s-p-g" style="width: {{skill.after}}%;"></div>
+                        <div class="time-bar s-p-b" style="width: {{skill.ratio}}%;"></div>
+                        <div class="time-bar s-p-g" style="width: {{skill.before}}%;"></div> 
+                    </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+        <!-- Logic to close row div -->
+        {% if skillgroup.display_width == 'full' %} 
+            </div>
+        {% else %}  
+            {% if not forloop.counter|divisibleby:"2" %}
+                </div>
+            {% endif %}
+        {% endif %}
+        {% endfor %}
+    
+</div>
+<br><br><br>
+
+
+
+<footer class="footer">
+    <div class="container">
+        <h4>Contact me:</h4>
+        <div class='left'>
+            <p class='p-footer'> krzysztof.zinger@gmail.com</p>
+            <p class='p-footer'>+48 791555945</p>
+        </div>
+
+        <div class='right'>
+            <a href="https://www.behance.net/Krzysztof_Zinger"><img class="link-icon" src="{% static 'icons/behance.png' %}"></a> 
+            <a href="https://www.linkedin.com/in/krzysztof-zinger-686274160/"><img class="link-icon" src="{% static 'icons/indesign.png' %}"></a>
+            <a href="https://www.instagram.com/archidonuts/"><img class="link-icon" src="{% static 'icons/insta.png' %}"></a>
+        </div>
+    </div>
+</footer>
+
+<script src='{% static "about/js/time_diagram.js" %}'></script>
+{% endblock %}

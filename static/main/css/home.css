@@ -1,0 +1,122 @@
+  /* ---------- projects ---------- */
+  .proj-title{
+    position: absolute;
+    right: 10%;
+    min-width: 25em;
+    background-color: rgba(255,255,255,0);
+    border: 1px solid rgba( 255, 255, 255, 1);
+    transition: 1s;
+    -webkit-transition: 1s;
+}
+
+.proj-title h2{
+    text-align: center;
+    font-family: 'Catamaran', sans-serif;
+    color: rgb(255,255,255);
+    font-size: 2.8em;
+    margin: 0px 0px 0px 0px;
+    transition: 1s;
+    -webkit-transition: 1s;
+}
+
+.proj-title p{
+    color: black;
+    text-align: justify;
+    font-size: 13px;
+    margin: 0px 0px 0px 0px;
+}
+
+  /* ---------- Side BAr ---------- */
+.my-side-nav{
+    z-index: 3;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20px;
+    width: 50%;
+}
+
+.side-nav-icon{
+  margin: 10px 0px 10px 0px;
+  width: 35px;
+  height: 1px;
+  background-color: white;
+  border: 50px solid none;
+  display: inline-block;
+
+  -webkit-transition-property: width; /* Safari */
+  -webkit-transition-duration: .35s; /* Safari */
+  transition-property: width;
+  transition-duration: .35s;
+}
+
+.side-nav-text p{ 
+  display: inline; 
+  visibility: hidden; 
+  color: white;
+  text-decoration: none;
+ 
+}
+
+.side-nav-link:active .side-nav-icon, .side-nav-link:hover .side-nav-icon, a:visited .side-nav-icon, .side-nav-link:hover p, a:visited{ 
+  width: 55px;
+  height: 1px;
+  visibility: visible;
+  text-decoration: none;
+}
+
+.side-nav-text{
+  display: inline-block;
+  top:50%;
+  transform: translateY(-50%);
+}
+
+  
+/* ---------- Media tablets ---------- */
+@media only screen and (max-width: 992px) {
+  #side-nav ul { display: none;}
+  .proj-title p{ display: none;}    
+  .proj-title{
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 0 %;
+  }
+.proj-title h2{
+  font-size: 3em;
+  margin: 0px 0px 0px 0px;
+  text-align: center;
+  }
+
+  .proj-title{
+    bottom: 30%;
+    padding: 1em;
+  }
+
+}
+
+
+@media only screen and (min-width: 992px) {
+  .proj-title:hover{  background-color: rgba(255,255,255,1);  }
+  .proj-title:hover h2{   color: rgb(0,0,0);}
+  .proj-title{
+    bottom: 10%;
+    padding: 1.2em;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .proj-title{
+    min-width: 15em;
+    background-color: rgba(255,255,255,0);
+    border: 1px solid rgba( 255, 255, 255, 1);
+
+}
+
+.proj-title h2{
+    text-align: center;
+    font-family: 'Catamaran', sans-serif;
+    color: white;
+    font-size: 2.2em;
+    margin: 0px 0px 0px 0px;
+}
+}

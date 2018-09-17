@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'main/css/my-navbar-dark.css' %}">
+<link rel="stylesheet" href="{% static 'main/css/project_contact.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class='container'>
+    <div class='left div-info'>
+        <p class='p-footer'> krzysztof.zinger@gmail.com</p>
+        <p class='p-footer'>+48 791555945</p>
+    </div>
+    
+    <div class='right div-img'>
+        <a href="https://www.behance.net/Krzysztof_Zinger"><img class="link-icon" src="{% static 'icons/behance.png' %}"></a> 
+        <a href="https://www.linkedin.com/in/krzysztof-zinger-686274160/"><img class="link-icon" src="{% static 'icons/indesign.png' %}"></a>
+        <a href="https://www.instagram.com/archidonuts/"><img class="link-icon" src="{% static 'icons/insta.png' %}"></a>
+    </div>
+</div>
+
+{% endblock %}

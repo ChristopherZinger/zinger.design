@@ -1,0 +1,15 @@
+{% extends 'projects/base_manager.html' %}
+
+{% block manager_head %}
+{% endblock %}
+
+{% block manager_content %}
+
+<form method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <input type="submit" value="Update" />
+</form>
+{% endblock %}
+
+

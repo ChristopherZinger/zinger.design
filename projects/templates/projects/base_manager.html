@@ -1,0 +1,34 @@
+
+
+
+{% extends 'base.html' %}
+
+{% load static %}
+{% block head %}
+    {% block manager_head %}
+    
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'main/css/my-navbar-dark.css' %}">
+    <link rel="stylesheet" href="{% static 'projects/css/manager.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<br><br><br> <br>
+
+<div class="container">
+    <nav style="border-bottom: 1px solid rgb(230,230,230);">    
+        <ul style=" margin:5px;">
+            <li class="manage-nav-link" style="display: inline-block; margin-left: 20px"> <a href="{% url 'projects:manager' %}">Manager</a> </li>
+            <li class="manage-nav-link" style="display: inline-block; margin-left: 20px"> <a href="{% url 'projects:create' %}">Add Project     </a> </li>
+            <li class="manage-nav-link" style="display: inline-block; margin-left: 20px"><a href="{% url 'admin:index' %}"> Admin    </a></li>
+            
+        </ul>
+    </nav>
+
+
+
+    {% block manager_content %}
+    {% endblock %}
+</div>
+{% endblock %}

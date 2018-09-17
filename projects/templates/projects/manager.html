@@ -1,0 +1,28 @@
+{% extends 'projects/base_manager.html' %}
+{% load static %}
+
+{% block manager_head %}
+{% endblock %}
+
+{% block manager_content %}
+<br>
+    <h4>Projects List</h4> <br>
+    {% for project in object_list.all %}
+    <div class="project-card "> 
+        <div class="card">
+             <strong><a href="{% url 'projects:manage_project' pk=project.id %}">{{ project.title|title }}</a></strong>  
+            
+            <div class="edit-icons">
+                <a href="{% url 'projects:manage_project' pk=project.id %}"> Edit <span class="glyphicon glyph-s glyphicon-pencil"></span> </a>
+                <a href="{% url 'projects:remove' pk=project.id %}"> Remove <span class="glyphicon glyph-s glyphicon-remove"></span> </a>
+            </div> 
+        </div>
+    </div>
+    {% endfor %}
+
+
+{% endblock %}
+
+
+            
+<span class="glyphicon-class">glyphicon glyphicon-remove</span>

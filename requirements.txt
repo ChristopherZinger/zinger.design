@@ -1,0 +1,4 @@
+djangorestframework-3.8.2
+pillow
+python3
+bootstrap3

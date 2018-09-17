@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'main/css/paralax.css' %}">
+<link rel="stylesheet" href="{% static 'main/css/home.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Exo:900" rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+
+
+
+<!-- side nav-->
+
+<div id='side-nav' class="my-side-nav">
+    <ul>
+        {% for project in object_list %}
+            {% if project.images.count > 0 %}
+                <li>
+                    <a class="side-nav-link" href="#{{ forloop.counter }}"> 
+                        <div class="side-nav-icon"></div> 
+                        <div class="side-nav-text"><p> {{ project.title }}</p></div>
+                    </a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>
+
+
+<!-- Projects -->
+<div id="all-projects">
+        {% for project in object_list %}
+        {% if project.images.count > 0 %}
+            {% with  project.images.all|first as img %}
+                <div id='{{ forloop.counter }}' class='parallax-container' style="background-image: url('{{ img.img.url }}') ;" >
+                    <a href="{% url 'project_detail' pk=project.id %}">
+                        <div class="proj-title">
+                            <h2>{{ project.title }}</h2>
+                        </div>
+                    </a>
+                </div>
+            {% endwith %}
+        {% endif %}
+    {% endfor %}
+</div>
+<script src="{% static 'main/js/scroll_to.js' %}"></script> 
+
+
+{% endblock %}
+
+

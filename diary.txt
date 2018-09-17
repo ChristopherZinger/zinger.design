@@ -1,0 +1,47 @@
+---- 2018 06 13
+	display image in template -  {{ image.img.url }}
+
+---- 2018 06 14
+	1 fixing error
+		error: invalid literal for int() with base 10
+		solution : mistake in defining url patter - pk regural expression
+	
+	2 return function for UpdateProjectImg  (view)
+		ready
+	
+	3 remove photo - reverse to project_manage page
+		progress
+		
+---- 2018 06 27
+	1 
+---- 2018 08 31
+
+	- edit files:
+		skillgroup_list.html
+		about.css
+		scroll_to.js
+
+---- 2018 09 01
+	- edit files:
+		my-navbar-dark.css
+		my-navbar.css
+		skillgroup_list.html
+		about.css
+
+---- 2018 09 05
+		skills/models.py
+		skills/admin.py
+		skills/skillgroup_list.html
+		project/manager.html
+		project/base_manager.html
+		css/manager.css
+		project/models.py
+		project/forms.py
+		dynamic_img_sort.js
+		RESTframework
+
+---- 2018 09 08
+		project/urls.py
+		project/view.py
+---- 2018 09 08
+		pip install django-cleanup-2.1.0

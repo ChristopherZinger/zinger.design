@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'main/css/paralax.css' %}">
+<link rel="stylesheet" href="{% static 'main/css/home.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Exo:900" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'main/css/footer.css' %}">
+<link rel="stylesheet" href="{% static 'projects/css/projects.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<!-- Projects -->
+<div class="description-container">
+        <div class="description-title">
+            <h3>{{ project.title }}</h3>
+            
+            <div class="x-icon">
+                
+                <div id="desc-icon3">
+                    <span></span>
+                    <span></span>
+                </div>
+                <p id='x-description'>Description</p>
+            </div>
+        </div>
+        <br>
+        <span></span>
+        <div class="description-text">
+            <p>{{ project.description }}</p>            
+        </div>
+</div>
+<div id="all-projects">
+        {% for img in project.images.all %}
+                <div id='{{ img.title }}' class='parallax-container' style="background-image: url('{{ img.img.url }}') ;" >
+
+                </div>
+    {% endfor %}
+</div>
+
+
+<footer class="footer">
+                <div class="container">
+                    <h4>Contact me:</h4>
+                    <div class='left'>
+                        <p class='p-footer'> krzysztof.zinger@gmail.com</p>
+                        <p class='p-footer'>+48 791555945</p>
+                    </div>
+            
+                    <div class='right'>
+                        <a href="https://www.behance.net/Krzysztof_Zinger"><img class="link-icon" src="{% static 'icons/behance.png' %}"></a> 
+                        <a href="https://www.linkedin.com/in/krzysztof-zinger-686274160/"><img class="link-icon" src="{% static 'icons/indesign.png' %}"></a>
+                        <a href="https://www.instagram.com/archidonuts/"><img class="link-icon" src="{% static 'icons/insta.png' %}"></a>
+                    </div>
+                </div>
+            </footer>
+            
+
+            <script src='{% static "projects/js/desc-button.js" %}'></script>
+
+{% endblock %}
+
+

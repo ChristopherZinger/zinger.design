@@ -1,0 +1,40 @@
+/* ---------- Overall ---------- */
+a {   text-decoration: none;}
+a:hover, a:active {   text-decoration: none;}
+ul li{
+  list-style: none;
+}
+
+body{
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+  scroll-behavior: smooth;
+}
+
+
+
+
+  /* ---------- colors ---------- */
+
+  .g{
+    background-color: gray;
+  }
+  .lg{
+    background-color: lightgray;
+  }
+
+  /* ---------- GLYPHICONS ---------- */
+  .glyph-xs{    font-size: 10px; }
+  .glyph-s{    font-size: 15px; }
+  .glyph-m{    font-size: 20px; }
+  .glyph-l{    font-size: 25px; }
+  .glyph-xl{    font-size: 30px; }
+
+
+
+
+
+
+
+

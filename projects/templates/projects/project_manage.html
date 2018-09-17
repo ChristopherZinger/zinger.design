@@ -1,0 +1,88 @@
+{% extends 'projects/base_manager.html' %}
+
+{% load static %}
+
+
+{% block manager_head %}
+<link rel="stylesheet" href="{% static 'projects/css/projects.css' %}">
+
+
+
+{% endblock %}
+
+{% block manager_content %}
+
+<br>
+<h2>{{ project.title|title }}</h2>
+<p>{{ project.description }}</p>
+
+<a id="edit-description" href="{% url 'projects:update' pk=project.pk %}" class="btn">Edit Description </a>
+
+<br><br><br><br>
+
+<div  ng-app="imgOrder" ng-controller="imgOrderController">
+{% if project.images.count > 0 %}
+    <h3>Images </h3>
+    <div class="row">
+    <ul id="sortable">
+    {% for image in project.images.all|dictsort:"order" %}
+            <li class="my-li">
+                <div class="my-card">
+                        <div class="my-card-img" style="background-image: url('{{ image.img.url }}') "> </div>
+                        <div class="card-body">
+                        <h4 class="card-title"> {{ image.title|title }} </h4>
+                        <div class="currOrder" img-id="{{image.id}}" >{{image.order}}</div>
+
+                        </div>
+                        <ul class="list-group list-group-flush my-list">
+                            <li class="list-group-item"><a href="{% url 'projects:update_img' proj_pk=project.id pk=image.id %}" class="card-link">Edit</a></li>
+                            <li class="list-group-item"><a href="{% url 'projects:remove_img' proj_pk=project.id pk=image.id %}" class="card-link">Remove</a></li>
+                        </ul> 
+                </div>
+            </li>
+    {% endfor %}
+{% else %}
+ <p>This project has no images added yet!</p>
+{% endif %}
+</ul>
+<ul>
+    <li class="my-li">
+        <div class=" my-card" > 
+
+                <ul class="list-group list-group-flush my-list">
+                    <li class="list-group-item"><a href="{% url 'projects:add_img' pk=project.id %}" >Add Photos</a> <span class="glyphicon glyphicon-plus" style="float: right;"></span> </li>
+                </ul>
+
+        </div>
+    </div>
+    </li>
+</ul>
+
+<form method="POST" ng-submit="orderUpdate()">
+    {% csrf_token  %}
+    <input id="{{image.id}}" ng-model="orderInput" type="text">
+    <submit type="submit" ng-click="saveOrder()" class="btn btn-default">Submit Order</submit>
+</form>
+
+<script type="text/javascript">
+    // using jQuery
+    var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+    </script>
+    
+<br>
+
+    <div ng-repeat="thing in imgOrderList">
+        <span ng-bind="thing.imgOrderText"></span>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="{% static 'projects/js/update-img-order.js' %}"></script> 
+</div>
+<script type="text/javascript">
+// using jQuery
+var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+</script>
+<script src="{% static 'main/js/jquery-ui.min.js' %}"></script> 
+<script src="{% static 'projects/js/sortable_img.js' %}"></script>
+ 
+
+{% endblock %}
